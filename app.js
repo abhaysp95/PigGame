@@ -126,7 +126,7 @@ document.querySelector(".btn-roll").addEventListener('click', function() {
 		console.log("dice1: " + dice1);
 		console.log("dice2: " + dice2);
 		//console.log("previousRoundScore: " + previousRoundScore + "\t roundScore: " + roundScore);
-		console.log("roundScore: " + roundScore);
+		console.log("roundScore: " + dice1 + dice2);
 
 		// 2. display result
 		dice1DOM.style.display = "block";
@@ -136,7 +136,7 @@ document.querySelector(".btn-roll").addEventListener('click', function() {
 		dice2DOM.src = "img/dice-" + dice2 + ".png";
 
 		// 3. update round score if current is not 1
-		if ((dice1 !== 1 || dice2 !== 1) && dice1 + dice2 != 12) {
+		if ((dice1 !== 1 && dice2 !== 1) && (dice1 + dice2 != 12)) {
 			//previousRoundScore = dice;
 			roundScore += (dice1 + dice2);
 			document.getElementById('current-' + activePlayer).textContent = roundScore;
