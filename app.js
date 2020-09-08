@@ -203,12 +203,13 @@ document.querySelector(".top-score").addEventListener("click", function() {
 					init(); // should I reset the game
 				}
 				else if (ifReset == "no"){
-					if (enteredScore <= scores[activePlayer]) {
+					if (enteredScore <= scores[0] || enteredScore <= scores[1]) {
+						winnerPlayer = scores[0] > scores[1] ? 0 : 1;
 						console.log("I'm here");
-						document.querySelector("#name-" + activePlayer).textContent = "Winner";
-						document.querySelector(".player-" + activePlayer + "-panel").classList.remove('active');
-						document.querySelector(".player-" + activePlayer + "-panel").classList.add('winner');
-						document.querySelector("#current-" + activePlayer).textContent = 0;
+						document.querySelector("#name-" + winnerPlayer).textContent = "Winner";
+						document.querySelector(".player-" + winnerPlayer + "-panel").classList.remove('active');
+						document.querySelector(".player-" + winnerPlayer + "-panel").classList.add('winner');
+						document.querySelector("#current-" + winnerPlayer).textContent = 0;
 						dice1DOM.style.display = "none";
 						dice2DOM.style.display = "none";
 						scores[0] = 0;
